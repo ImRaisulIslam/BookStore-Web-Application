@@ -1,0 +1,130 @@
+﻿
+@model BookModel
+
+@{
+    ViewData["Title"] = "Book Details";
+}
+
+
+
+
+<div class="container">
+    <h2>Book Details</h2>
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+
+                    @for (int i = 0; i < Model.Gallery.Count(); i++)
+                    {
+                        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="@i" class="@(i == 0 ? "active": "")"></li>
+                    }
+
+                   
+                </ol>
+                <div class="carousel-inner">
+
+
+                    @for (int i = 0; i < Model.Gallery.Count(); i++)
+                    {
+                        <div  class="@(i == 0 ? "carousel-item active": "carousel-item")">
+
+
+                            <img src="@Model.Gallery[i].Url" class="d-block w-100" alt="@Model.Gallery[i].Name">
+                        </div>
+
+                    }
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>@Model.BookName</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <span class="col-form-label-sm text-primary ">By :</span>
+                    <span class="text-monospace text-primary">@Model.AuthorName</span>
+                </div>
+            </div>
+
+
+            <div class="row mr-2">
+                <div class="col-md-12">
+                    <div class="description">
+                        @Model.BookDescription
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row py-2">
+                <div class="col-md-4">
+
+                    <a class="btn btn-outline-primary" href="@Model.BookPdfUrl" target="_blank">Read Now</a>
+
+                    
+
+                </div>
+            </div>
+
+
+            <ul class="list-group">
+                <li class="list-group-item">Catagory : <span>@Model.Catagory</span></li>
+                <li class="list-group-item">Total Pages : <span>@Model.TotalPages</span></li>
+                <li class="list-group-item">Language : <span>@Model.Language</span></li>
+
+            </ul>
+
+        </div>
+
+
+    </div>
+
+    <hr />
+
+    <h3 >Similar Books</h3>
+    <div class="row">
+
+        @for (int i = 0; i < 5; i++)
+        {
+            <div class="col-md-4 py-2">
+                <div class="card" style="width: 18rem;">
+
+
+
+                    <img class="card-img-top" src="~/images/1.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <div class="d-flex justify-content-between">
+                            <a href="#" class="btn btn-sm btn-primary">See Details</a>
+                            <small class="text-muted text-right ">Auther Name</small>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        }
+
+
+    </div>
+</div>

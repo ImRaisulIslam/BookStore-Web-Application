@@ -1,0 +1,65 @@
+﻿@{ 
+    ViewData["Title"] = "Home";
+}
+
+
+
+<section class="jumbotron text-center">
+
+    <div class="container">
+
+        @*@await Component.InvokeAsync("TopBooks");*@
+
+      
+
+        <h1>Welcome to CSE Book Store  </h1>
+        <big>Override Html tag</big>
+        <p big>Override Html tag</p>
+
+
+        <p>
+
+
+
+            Ut fusce varius nisl ac ipsum gravida vel pretium tellus tincidunt integer eu augue augue nunc elit dolor, luctus placerat.
+            Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula
+            ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+        </p>
+
+        <a class="btn btn-primary my-2">Search Books</a>
+
+    </div>
+
+
+</section>
+
+
+<div class="py-5 bg-light">
+    
+    <div class="container">
+
+        <h3 class="display-4 mb-3">Top Books</h3>
+
+        @*@await  Component.InvokeAsync("TopBooks" , new { count=7})*@
+            
+            <vc:top-books count="4"></vc:top-books>
+
+        
+
+    </div>
+
+
+</div>
+
+
+@section script
+{
+    <script>
+        $(document).ready(function () {
+           // alert("Ready?");
+        });
+    </script>
+
+}
+
+
